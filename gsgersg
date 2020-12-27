@@ -1,0 +1,11 @@
+[33mcommit cc72452a439e8c66fee9673c03d34bf49457f669[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Lewis Ndungu <lewisndungu3@gmail.com>
+Date:   Sat Dec 26 17:51:28 2020 -0800
+
+    Added functions that get called when one selects a loop to display help. Added a do..while loop in case user selects an invalid input.
+
+[33mcommit 62f86098bc53e71dc93cdffbddab26d994843747[m
+Author: Lewis Ndungu <lewisndungu3@gmail.com>
+Date:   Sat Dec 26 16:39:23 2020 -0800
+
+    Initial commit

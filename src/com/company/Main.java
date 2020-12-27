@@ -1,6 +1,7 @@
 package com.company;
 
-import java.util.Scanner;
+import java.io.IOException;
+
 public class Main {
     static void whileLoop(){
         System.out.println("While Loop syntax is as follows:\n");
@@ -17,6 +18,7 @@ public class Main {
         System.out.println("\telse{");
         System.out.println("\t\tstatements if condition is not true;");
         System.out.println("\t}");
+        System.out.println();
     }
 
     static void doLoop(){
@@ -24,6 +26,7 @@ public class Main {
         System.out.println("\tdo{");
         System.out.println("\t\tstatements if condition is met.;");
         System.out.println("\t}while(condition);");
+        System.out.println();
     }
 
     static void switchLoop(){
@@ -53,45 +56,54 @@ public class Main {
         System.out.println();
 
     }
-    public static void main(String[] args) {
-        int loopSelected;
-        do {
-            System.out.println(
-                    "1: While loop.\n" +
-                            "2: If.\n" +
-                            "3: Do...while loop.\n" +
-                            "4: Switch\n" +
-                            "5: For."
-            );
+    public static void main(String[] args) throws IOException {
 
+        for(;;){
+
+            char loopSelected, ignore;
+            do {
+                System.out.println(
+                        "1: While loop.\n" +
+                        "2: If.\n" +
+                        "3: Do...while loop.\n" +
+                        "4: Switch\n" +
+                        "5: For.\n" +
+                        "q: Quit the program"
+
+                );
+
+                System.out.println();
+                System.out.print("Enter the number of the loop get its assistance: ");
+                loopSelected = (char) System.in.read();
+                do {
+                    ignore = (char) System.in.read();
+                }while (ignore != '\n');
+            }while (loopSelected<'1' | loopSelected>'5' & loopSelected != 'q');
+            if (loopSelected == 'q') break;
             System.out.println();
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Enter the number of the loop get its assistance: ");
-            loopSelected = scanner.nextInt();
-        }while (loopSelected<1 | loopSelected>5);
+            switch (loopSelected) {
+                case '1':
+                    whileLoop();
+                    break;
 
-        System.out.println();
-        switch (loopSelected){
-            case 1:
-                whileLoop();
-                break;
+                case '2':
+                    ifLoop();
+                    break;
 
-            case 2:
-                ifLoop();
-                break;
+                case '3':
+                    doLoop();
+                    break;
 
-            case 3:
-                doLoop();
-                break;
+                case '4':
+                    switchLoop();
+                    break;
 
-            case 4:
-                switchLoop();
-                break;
-
-            case 5:
-                forLoop();
-                break;
-
+                case '5':
+                    forLoop();
+                    break;
+            }
         }
     }
 }
+
+
