@@ -2,6 +2,44 @@ package com.company;
 
 import java.io.IOException;
 
+class Menu{
+    static void showMenu(){
+        System.out.println(
+                "1: While loop.\n" +
+                        "2: If.\n" +
+                        "3: Do...while loop.\n" +
+                        "4: Switch\n" +
+                        "5: For.\n" +
+                        "q: Quit the program");
+    }
+    static void helpOn(char x) {
+        switch (x) {
+            case '1':
+                Loops.whileLoop();
+                break;
+
+            case '2':
+                Loops.ifLoop();
+                break;
+
+            case '3':
+                Loops.doLoop();
+                break;
+
+            case '4':
+                Loops.switchLoop();
+                break;
+
+            case '5':
+                Loops.forLoop();
+                break;
+        }
+    }
+    static boolean isValid(char x){
+        return x < '1' | x > '5' & x != 'q';
+    }
+}
+
 class Loops {
     static void whileLoop(){
         System.out.println("While Loop syntax is as follows:\n");
@@ -56,45 +94,6 @@ class Loops {
         System.out.println();
 
     }
-
-    static void helpOn(char x) {
-        switch (x) {
-            case '1':
-                whileLoop();
-                break;
-
-            case '2':
-                ifLoop();
-                break;
-
-            case '3':
-                doLoop();
-                break;
-
-            case '4':
-                switchLoop();
-                break;
-
-            case '5':
-                forLoop();
-                break;
-        }
-    }
-
-    static void showMenu(){
-        System.out.println(
-                "1: While loop.\n" +
-                "2: If.\n" +
-                "3: Do...while loop.\n" +
-                "4: Switch\n" +
-                "5: For.\n" +
-                "q: Quit the program");
-    }
-
-    static boolean isValid(char x){
-        return x < '1' | x > '5' & x != 'q';
-    }
-
 }
 
 public class Main {
@@ -103,7 +102,7 @@ public class Main {
             char loopSelected, ignore;
 
             do {
-                Loops.showMenu();
+                Menu.showMenu();
                 System.out.println();
                 System.out.print("Enter the number of the loop get its assistance: ");
                 loopSelected = (char) System.in.read();
@@ -112,14 +111,14 @@ public class Main {
                     ignore = (char) System.in.read();
                }while (ignore != '\n');
 
-            }while (Loops.isValid(loopSelected));
+            }while (Menu.isValid(loopSelected));
 
             if (loopSelected == 'q') break;
             System.out.println();
-            Loops.helpOn(loopSelected);
-            }
+            Menu.helpOn(loopSelected);
         }
     }
+}
 
 
 
