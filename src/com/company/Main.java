@@ -1,6 +1,6 @@
 package com.company;
 
-import java.io.IOException;
+import java.io.IOException;//Instead of creating a Scanner object, this code uses System.in.read, which requires an exception to be thrown at the start of the class.
 
 class Menu{
     static void showMenu(){
@@ -35,8 +35,8 @@ class Menu{
                 break;
         }
     }
-    static boolean isValid(char x){
-        return x < '1' | x > '5' & x != 'q';
+    static boolean isValid(char y){//creates a test that returns true if a valid input is given.
+        return (y < '1' | y > '5' & y != 'q');
     }
 }
 
@@ -98,7 +98,7 @@ class Loops {
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        for(;;){
+        for(;;){//creates an infinite loop that only breaks if the user presses "q"
             char loopSelected, ignore;
 
             do {
