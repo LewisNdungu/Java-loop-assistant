@@ -2,7 +2,7 @@ package com.company;
 
 import java.io.IOException;
 
-public class Main {
+class Loops {
     static void whileLoop(){
         System.out.println("While Loop syntax is as follows:\n");
         System.out.println("\twhile (condition){");
@@ -56,54 +56,70 @@ public class Main {
         System.out.println();
 
     }
+
+    static void helpOn(char x) {
+        switch (x) {
+            case '1':
+                whileLoop();
+                break;
+
+            case '2':
+                ifLoop();
+                break;
+
+            case '3':
+                doLoop();
+                break;
+
+            case '4':
+                switchLoop();
+                break;
+
+            case '5':
+                forLoop();
+                break;
+        }
+    }
+
+    static void showMenu(){
+        System.out.println(
+                "1: While loop.\n" +
+                "2: If.\n" +
+                "3: Do...while loop.\n" +
+                "4: Switch\n" +
+                "5: For.\n" +
+                "q: Quit the program");
+    }
+
+    static boolean isValid(char x){
+        return x < '1' | x > '5' & x != 'q';
+    }
+
+}
+
+public class Main {
     public static void main(String[] args) throws IOException {
-
         for(;;){
-
             char loopSelected, ignore;
+
             do {
-                System.out.println(
-                        "1: While loop.\n" +
-                        "2: If.\n" +
-                        "3: Do...while loop.\n" +
-                        "4: Switch\n" +
-                        "5: For.\n" +
-                        "q: Quit the program"
-
-                );
-
+                Loops.showMenu();
                 System.out.println();
                 System.out.print("Enter the number of the loop get its assistance: ");
                 loopSelected = (char) System.in.read();
-                do {
+
+               do {
                     ignore = (char) System.in.read();
-                }while (ignore != '\n');
-            }while (loopSelected<'1' | loopSelected>'5' & loopSelected != 'q');
+               }while (ignore != '\n');
+
+            }while (Loops.isValid(loopSelected));
+
             if (loopSelected == 'q') break;
             System.out.println();
-            switch (loopSelected) {
-                case '1':
-                    whileLoop();
-                    break;
-
-                case '2':
-                    ifLoop();
-                    break;
-
-                case '3':
-                    doLoop();
-                    break;
-
-                case '4':
-                    switchLoop();
-                    break;
-
-                case '5':
-                    forLoop();
-                    break;
+            Loops.helpOn(loopSelected);
             }
         }
     }
-}
+
 
 
